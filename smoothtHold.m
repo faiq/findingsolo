@@ -27,6 +27,7 @@ for(i = 1:numRegions)
     stats = regionprops(regioni, 'Perimeter', 'Area', 'Eccentricity');%, 'ConvexImage', 'BoundingBox');
 
     roundness = 4*pi*stats.Area/stats.Perimeter^2;
+    stats.Eccentricity
     
     if(stats.Eccentricity > .85)
         regions = (regions~=i).*regions;

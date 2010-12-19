@@ -44,7 +44,7 @@ function [ O xf v ] = register( I, proto, mask, theta, scale, xshift, yshift, sq
         protoT = tForm( protonewb, width, height, x(1), x(2), x(3), x(4), x(5), squishlim);
 
         %value to be optimized
-        opt = match( Im, protoT, mask, calcmat) + 0*.04  + 0*.03/x(5) + x(2)*.03;
+        opt = match( Im, protoT, mask, calcmat) + 0*0.4 + 0*.03/x(5) + x(2)*.03;
     end
     
     %perform optimization
