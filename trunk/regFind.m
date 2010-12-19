@@ -139,9 +139,9 @@ for i = 1:numRegions
     
     O1 = rgb2gray(O);
     if(option == 1)  %hightlight cups
-        if(v < -2.4)
+        if(v < -2.6)
             overlay(:,:,3) = (O1~=0).*.5 + overlay(:,:,3);
-        elseif (v < -2.0)
+        elseif (v < -2.3)
             overlay(:,:,2) = (O1~=0).*.5 + overlay(:,:,2);
         else
             overlay(:,:,2) = (O1~=0).*.25 + overlay(:,:,2); 
