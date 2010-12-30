@@ -82,7 +82,8 @@ function pushbutton1_Callback(hObject, eventdata, handles)
           '*.*','All Files' },'Select the Image File');
     handles.pathname = PathName;
     handles.filename = FileName;
-    shortpath = strcat('...', handles.pathname((length(strcat(handles.pathname, handles.filename))-57):length(handles.pathname)), handles.filename);
+    pathoffset = max(1, length(strcat(handles.pathname, handles.filename))-57);
+    shortpath = strcat('...', handles.pathname(pathoffset:length(handles.pathname)), handles.filename);
     set(handles.edit3, 'String', shortpath);
   
     guidata(hObject, handles);
@@ -150,40 +151,10 @@ switch get(handles.popupmenu3,'Value')
 end
 
 
-%o = regFind(I,option, sensitivity);
-if(strcmp(strcat(handles.pathname,handles.filename), '/Users/CameronMusco/Documents/CSLaw Final Project/findingsolo svn (trunk)/test2.jpg'))
-    load 'matt2answer.mat';
-    pause(5);
-    axes(handles.axes6);
-    imshow(matt2answer);
-
-end
-
-if(strcmp(strcat(handles.pathname,handles.filename), '/Users/CameronMusco/Documents/CSLaw Final Project/findingsolo svn (trunk)/test1.jpg'))
-    if(option == 1)
-        load 'chrishighlight.mat';
-        pause(5);
-        axes(handles.axes6);
-        imshow(chrishighlight);
-    else
-        load 'chrisjuice.mat';
-        pause(5);
-        axes(handles.axes6);
-        imshow(chrisjuice);
-    end
-end
-
-if(strcmp(strcat(handles.pathname,handles.filename), '/Users/CameronMusco/Documents/CSLaw Final Project/findingsolo svn (trunk)/test3.jpg'))
-    load 'familyanswer.mat';
-    pause(5);
-    axes(handles.axes6);
-    imshow(familyanswer);
-
-end
-    
+o = regFind(I,option, sensitivity);
 axes(handles.axes6);
 
-%imshow(o);
+imshow(o);
 
 set(handles.text6, 'String', 'Solo cup identification complete.');
 
